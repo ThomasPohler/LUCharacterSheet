@@ -1,0 +1,677 @@
+  /**************************/
+ /* DEFINE COLOR VARIABLES */
+/**************************/
+
+body {
+    /* These variables are not changed in dark mode: */
+    --color-accent: #0075FF;
+
+    --color-button: #CCCCCC;
+    --color-button-hover: #D8D8D8;
+    --color-button-active: #C1C1C1;
+
+    --color-button-positive: #88E288;
+    --color-button-negative: #EF8F8F;
+
+    /* These variables are changed in dark mode: */
+    --color-background: #F2F2F2;
+
+    --color-container: #E5E5E5;
+    --color-border: #3F3F3F;
+
+    --color-text: black;
+    --color-text-accent: #3F3F3F;
+
+    --color-text-background: white; /*TPTODO this is the back of the text areas I think?*/
+    --color-highlight: #B2B2B2;
+}
+body.sheet-darkmode {
+    --color-background: #363636;
+
+    --color-container: #262626;
+    --color-border: black;
+    
+    --color-text: #E6E6E6;
+    --color-text-accent: #BABABA;
+
+    --color-text-background: #F5F5F5;
+    --color-highlight: #4C4C4C;
+}
+
+  /*******************/
+ /* SETTING: COLORS */
+/*******************/
+
+#sheet_color {display: none;}
+body.sheet-darkmode #sheet_color {display: block !important;}
+
+body.sheet-darkmode #full_sheet.blue {
+    --color-container: #001733;
+    --color-text-accent: #A3B6CC;
+    --color-highlight: #515B66;
+    --color-button: #A5D9FF;
+    --color-button-hover: #B2DFFF;
+    --color-button-active: #8CCFFF;
+    --color-button-positive: #A5FFFF;
+    --color-button-negative: #A5A5FF;
+}
+body.sheet-darkmode:has(> .ui-dialog > * > * > * > * > .blue) {
+    --color-background: #0A2859 !important;
+}
+
+body.sheet-darkmode #full_sheet.green {
+    --color-container: #003308;
+    --color-text-accent: #B7E5BD;
+    --color-highlight: #667F69;
+}
+body.sheet-darkmode:has(> .ui-dialog > * > * > * > * > .green) {
+    --color-background: #006612 !important;
+}
+
+body.sheet-darkmode #full_sheet.red {
+    --color-container: #330000;
+    --color-text-accent: #D8A2A2;
+    --color-highlight: #664C4C;
+}
+body.sheet-darkmode:has(> .ui-dialog > * > * > * > * > .red) {
+    --color-background: #590000 !important;
+}
+
+body.sheet-darkmode #full_sheet.purple {
+    --color-container: #4C0042;
+    --color-text-accent: #D86CCA;
+    --color-highlight: #B259A6;
+}
+body.sheet-darkmode:has(> .ui-dialog > * > * > * > * > .purple) {
+    --color-background: #7F006E !important;
+}
+
+body.sheet-darkmode #full_sheet.pink {
+    --color-container: #E75480;
+    --color-text-accent: #FFBFD2;
+    --color-highlight: #FF7FA5;
+}
+body.sheet-darkmode:has(> .ui-dialog > * > * > * > * > .pink) {
+    --color-background: #FE98CA !important;
+}
+
+
+
+#page_cheatsheet { /* TPTODO */
+    color: var(--color-text);
+}
+
+
+
+  /********/
+ /* MISC */
+/********/
+
+.hidden {
+    display: none;
+}
+.invis {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.main-width {
+    width: 475px !important;
+}
+.main-width textarea {
+    width: 461px;
+}
+
+.top-padding-6px {
+    padding-top: 6px !important;
+}
+.bottom-padding-3px {
+    padding-bottom: 3px !important;
+}
+.bottom-padding-4px {
+    padding-bottom: 4px !important;
+}
+.bottom-padding-5px {
+    padding-bottom: 5px !important;
+}
+.bottom-padding-6px {
+    padding-bottom: 6px !important;
+}
+
+
+
+textarea.resize {
+    resize: vertical;
+    height: 35px;
+}
+
+
+
+.text-color {
+    color: var(--color-text) !important;
+}
+
+
+
+.container-style {
+	border: 2px solid var(--color-border);
+	background-color: var(--color-container);
+	padding: 6px;
+    padding-bottom: 0px;
+	border-radius: 5px;
+	margin-bottom: 9px;
+    position: relative;
+    width: fit-content;
+    overflow: hidden;
+}
+
+
+
+/* TPTODO col grid */
+.col2-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3px;
+}
+.col4-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 3px;
+}
+.col6-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 3px;
+}
+.col2-grid span,
+.col4-grid span,
+.col6-grid span { /* TPTODO we could have so many less rules if we just had 1-4 grid things */
+    margin: 0px auto;
+}
+.col2-grid input,
+.col4-grid input,
+.col6-grid input {
+    width: 100% !important;
+}
+
+.col1 {
+    flex: 1;
+}
+.col2 {
+    flex: 2;
+}
+.col3 {
+    flex: 3;
+}
+.col4 {
+    flex: 4;
+}
+.col5 {
+    flex: 5;
+}
+.col6 {
+    flex: 6;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-left: -6px;
+    margin-right: -6px;
+    gap: 8px;
+    margin-bottom: 3px;
+}
+.row:last-child, .row:only-child {
+    margin-bottom: 0px;
+}
+.row > div {
+    text-align: center;
+    flex: 1;
+}
+.row span {
+    display: block;
+    text-align: center;
+    position: relative;
+    bottom: 2px;
+    color: var(--color-text-accent);
+    flex: 1;
+    white-space: nowrap;
+}
+.row input {
+    width: 100% !important;
+    position: relative;
+    bottom: 3px;
+}
+.row textarea {
+    position: relative;
+    bottom: 3px;
+    margin-bottom: -1px;
+}
+.trait-row select {
+    width: fit-content;
+}
+.trait-row input {
+    bottom: 0px;
+    height: 28px !important;
+}
+
+.centered-row {
+    text-align: center;
+    margin-bottom: 6px;
+}
+.centered-row span {
+    color: var(--color-text-accent);
+}
+.centered-row > div {
+    white-space: nowrap;
+    width: 25px;
+    margin-left: 30%;
+}
+
+.header-row {
+    display: grid;
+    grid-template-columns: 0px 1fr;
+    margin-bottom: 2px;
+}
+.header-row button {
+    width: 12px;
+    z-index: 255;
+}
+.header-row span {
+    font-size: 21px;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+
+
+.collapsible {
+    transition: 0.3s;
+    overflow: hidden;
+}
+.collapsible.collapsed {
+    height: 0px !important;
+}
+
+#character_collapse {
+    height: 341px;
+}
+#character_collapse textarea {
+    height: 150px;
+    resize: none;
+}
+#traits_collapse {
+    height: 294px;
+}
+#stats_collapse {
+    height: 517px;
+}
+#dcdefense_collapse {
+    height: 149px;
+}
+
+
+
+#ability_container .repcontrol_add {
+    position: relative;
+    right: 134px;
+}
+
+
+
+.hr, .header-hr {
+    background-color: var(--color-highlight);
+    height: 1px;
+    margin-bottom: 8px;
+    flex: 1;
+}
+.hr {
+    margin-top: 8px;
+}
+.header-hr {
+    margin-top: 0px;
+}
+
+.vr {
+    background-color: var(--color-highlight);
+    height: 100%;
+    width: 1px;
+    margin: 0px auto;
+}
+
+
+
+button {
+    width: 80px;
+    height: 20px;
+	background-color: var(--color-button);
+	border: 1px var(--color-border) solid;
+	padding-bottom: 2px;
+	padding-top: 2px;
+	border-radius: 6px;
+    transition: all 0.3s, border-color 0s;
+    overflow: hidden;
+    flex: 1;
+}
+button:hover {
+    background-color: var(--color-button-hover);
+}
+button:active {
+    background-color: var(--color-button-active);
+}
+
+button.small {
+    width: 12px;
+    height: 20px;
+}
+
+button input {
+    float: left;
+    position: relative;
+    bottom: 3px;
+    right: 6px;
+    border-right: 1px solid var(--color-border);
+}
+/* hides number arrows */
+button input::-webkit-outer-spin-button,
+button input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+button input[type=number] {
+    -moz-appearance: textfield;
+}
+button span {
+    color: black;
+    position: relative;
+    top: 1.5px;
+    cursor: pointer;
+    color: black !important;
+}
+
+
+
+button.checkbox {
+    background-color: white !important;
+    width: 12px !important;
+    height: 12px !important;
+    border-radius: 3px;
+    border: 1px var(--color-border) solid;
+    padding: 0px;
+    display: inline;
+}
+button.checkbox.checked {
+    background-color: var(--color-accent) !important;
+}
+
+
+
+input[type=number] {
+    width: 50px;
+}
+
+
+
+textarea {
+    margin-bottom: 0px;
+}
+
+
+
+span {
+    color: var(--color-text);
+}
+
+.header {
+    font-size: 16px;
+}
+
+
+
+#page_main {
+    margin-left: -8px;
+}
+
+
+
+/* Controls the background color */
+#dialog-window {
+    background-color: var(--color-background) !important;
+}
+.tab-pane {
+    background-color: var(--color-background);
+}
+
+
+
+/* This controls the color of the tabs above the character sheet */
+.nav.nav-tabs {
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-left: 1px solid #DDDDDD;
+    border-right: 1px solid #DDDDDD;
+}
+body.sheet-darkmode .nav.nav-tabs {
+    background-color: var(--color-container);
+    border: 1px solid #5C5C5C;
+    border-top: 1px solid black;
+}
+.nav.nav-tabs li.active > a {
+    background-color: var(--color-background);
+}
+
+
+
+/* This controls the tabs in the character sheet that hold the different pages */
+#tab_holder {
+    padding-bottom: 6px;
+    margin-top: -6px;
+    width: 502px;
+}
+
+
+
+
+#main_page_main {
+    flex: 0;
+}
+
+#main_page_right_sidebar > div {
+    width: 150px;
+    position: fixed;
+}
+#main_page_right_sidebar .hr {
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+#main_page_right_sidebar select {
+    width: 100% !important;
+}
+
+#global_mod_box {
+    margin-top: -32px;
+}
+#action_tracker_box {
+    margin-top: 137px;
+}
+#sheet_settings_box {
+    margin-top: 262px;
+}
+
+
+
+/* TPTODO */
+.disadvantaged-trait {
+    background-color: var(--color-button-negative) !important;
+}
+.advantaged-trait {
+    background-color: var(--color-button-positive) !important;
+}
+
+
+
+/*:has(> .ability input.category[value="Attack"])*/
+
+/* #ability_container input.outside-ability-category[value="Attack"] ~ .repcontainer:has(> .repitem input.ability-category[value="Attack"]) {
+    background-color: red;
+} */
+
+#ability_container input.outside-ability-category[value="Attack"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Attack"])) {
+    display: none;
+}
+#ability_container input.outside-ability-category[value="Spell"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Spell"])) {
+    display: none;
+}
+#ability_container input.outside-ability-category[value="Class Ability"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Class Ability"])) {
+    display: none;
+}
+#ability_container input.outside-ability-category[value="Species Ability"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Species Ability"])) {
+    display: none;
+}
+#ability_container input.outside-ability-category[value="Lore Ability"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Lore Ability"])) {
+    display: none;
+}
+#ability_container input.outside-ability-category[value="Equipment"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Equipment"])) {
+    display: none;
+}
+
+.repcontainer[data-groupname="repeating_abilities"] input.ability-color[value="Red"] + .ability-header > .ability-name {
+    background-color: #ff9999;
+}
+.repcontainer[data-groupname="repeating_abilities"] input.ability-color[value="Green"] + .ability-header > .ability-name {
+    background-color: #99ff99;
+}
+.repcontainer[data-groupname="repeating_abilities"] input.ability-color[value="Blue"] + .ability-header > .ability-name {
+    background-color: #aaddff;
+}
+.repcontainer[data-groupname="repeating_abilities"] input.ability-color[value="Purple"] + .ability-header > .ability-name {
+    background-color: #ddaaff;
+}
+.repcontainer[data-groupname="repeating_abilities"] input.ability-color[value="Pink"] + .ability-header > .ability-name {
+    background-color: #ffaadd;
+}
+
+.repcontainer[data-groupname="repeating_abilities"] input.ability-layout[value="1"] + .ability .settings,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-layout[value="2"] + .ability .content,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-collapse[value="1"] ~ div {
+    display: none;
+}
+.repcontainer[data-groupname="repeating_abilities"] input.ability-load[value="0"] + button .unloaded,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-load[value="1"] + button .loaded {
+    display: none;
+}
+.repcontainer[data-groupname="repeating_abilities"] .repitem:first-child .hr {
+    display: none;
+}
+
+.repcontainer[data-groupname="repeating_abilities"] .itemcontrol {
+    z-index: 1;
+}
+.repcontainer[data-groupname="repeating_abilities"] .itemcontrol .repcontrol_move {
+    position: relative;
+    right: 172px;
+}
+
+.repcontainer[data-groupname="repeating_abilities"] input[type=text] {
+    width: 100%;
+}
+
+.repcontainer[data-groupname="repeating_abilities"] .ability-header {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: fit-content(100%) 1fr fit-content(100%) fit-content(100%) fit-content(100%);
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability-header button {
+    width: 12px;
+    position: relative;
+    bottom: 2px;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability-header span {
+    margin-left: 1px;
+    margin-right: 1px;
+    padding-top: 4px;
+}
+
+.repcontainer[data-groupname="repeating_abilities"] .ability-attack-header {
+    display: grid;
+    grid-gap: 3px;
+    grid-template-columns: fit-content(100%) 1fr fit-content(100%) fit-content(100%) fit-content(100%);
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability-attack-content {
+    margin-bottom: 2px;
+    gap: 0px;
+    flex-wrap: wrap;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability-attack-content input {
+    max-width: 100px;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability-attack-content > div > button {
+    margin-bottom: 4px;
+}
+
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasuses:checked) .ability-uses {
+    display: flex !important;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasattack:checked) .ability-attack {
+    display: block !important;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasmelee:checked) .melee {
+    display: block !important;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasranged:checked) .ranged {
+    display: block !important;
+}
+/*.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasthrown:checked) .thrown {
+    display: block !important;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasunarmed:checked) .unarmed {
+    display: block !important;
+}*/
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasspell:checked) .spell {
+    display: block !important;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.haseffect:checked) .effect {
+    display: block !important;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasability:checked) .ability {
+    display: block !important;
+}
+/*.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasrune:checked) .rune {
+    display: block !important;
+}*/
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasenvironment:checked) .environment {
+    display: block !important;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasammo:checked) .load-button {
+    display: block !important;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasdescription:checked) .ability-description {
+    display: block !important;
+}
+
+.repcontainer[data-groupname="repeating_abilities"] .melee input,
+.repcontainer[data-groupname="repeating_abilities"] .ranged input,
+.repcontainer[data-groupname="repeating_abilities"] .thrown input,
+.repcontainer[data-groupname="repeating_abilities"] .spell input,
+.repcontainer[data-groupname="repeating_abilities"] .unarmed input {
+    width: 92px !important;
+}
+
+
+
+.repcontainer[data-groupname="repeating_equipment"] .equipment-header {
+    display: grid;
+    grid-template-columns: 25px 50px 1fr 50px 50px;
+    column-gap: 3px;
+}
+.repcontainer[data-groupname="repeating_equipment"] .equipment-header button {
+    width: 12px;
+}
+.repcontainer[data-groupname="repeating_equipment"] .equipment-header input {
+    width: 100%;
+}
+
+.repcontainer[data-groupname="repeating_equipment"] input.equipment-collapse[value="1"] + .collapse-description {
+    display: none;
+}
