@@ -1,26 +1,26 @@
-  /**************************/
- /* DEFINE COLOR VARIABLES */
-/**************************/
+  /*******************/
+ /* COLOR VARIABLES */
+/*******************/
 
 body {
     /* These variables are not changed in dark mode: */
-    --color-accent: #0075FF;
+    --color-accent: #0075FF; /* color of checked checkboxes */
 
-    --color-button: #CCCCCC;
-    --color-button-hover: #D8D8D8;
-    --color-button-active: #C1C1C1;
+    --color-button: #CCCCCC; /* background color of buttons */
+    --color-button-hover: #D8D8D8; /* background color of buttons that are being hovered over */
+    --color-button-active: #C1C1C1; /* backgruond color of buttons that are being clicked */
 
-    --color-button-positive: #88E288;
-    --color-button-negative: #EF8F8F;
+    --color-button-positive: #88E288; /* trait advantage buttons */
+    --color-button-negative: #EF8F8F; /* trait disadvantage buttons */
 
     /* These variables are changed in dark mode: */
-    --color-background: #F2F2F2;
+    --color-background: #F2F2F2; /* background color of the page */
 
-    --color-container: #E5E5E5;
-    --color-border: #3F3F3F;
+    --color-container: #E5E5E5; /* background color of the containers that hold the rest of the elements */
+    --color-border: #3F3F3F; /* border color of the containers */
 
-    --color-text: black;
-    --color-text-accent: #3F3F3F;
+    --color-text: black; /* color of text */
+    --color-text-accent: #3F3F3F; /* color of smaller sub-text */
 
     --color-text-background: white; /*TPTODO this is the back of the text areas I think?*/
     --color-highlight: #B2B2B2;
@@ -52,8 +52,6 @@ body.sheet-darkmode #full_sheet.blue {
     --color-button: #A5D9FF;
     --color-button-hover: #B2DFFF;
     --color-button-active: #8CCFFF;
-    --color-button-positive: #A5FFFF;
-    --color-button-negative: #A5A5FF;
 }
 body.sheet-darkmode:has(> .ui-dialog > * > * > * > * > .blue) {
     --color-background: #0A2859 !important;
@@ -72,6 +70,10 @@ body.sheet-darkmode #full_sheet.red {
     --color-container: #330000;
     --color-text-accent: #D8A2A2;
     --color-highlight: #664C4C;
+    --color-button: #FF9C9C;
+    --color-button-hover: #ffc1c1;
+    --color-button-active: #cf7474;
+    --color-button-negative: #ff6161;
 }
 body.sheet-darkmode:has(> .ui-dialog > * > * > * > * > .red) {
     --color-background: #590000 !important;
@@ -110,7 +112,7 @@ body.sheet-darkmode:has(> .ui-dialog > * > * > * > * > .pink) {
 .hidden {
     display: none;
 }
-.invis {
+.empty-row-cell {
     opacity: 0;
     pointer-events: none;
 }
@@ -150,6 +152,18 @@ textarea.resize {
 .text-color {
     color: var(--color-text) !important;
 }
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    opacity: 0.65;
+}
+::-moz-placeholder { /* Firefox 19+ */
+    opacity: 0.65;
+}
+:-ms-input-placeholder { /* IE 10+ */
+    opacity: 0.65;
+}
+:-moz-placeholder { /* Firefox 18- */
+    opacity: 0.65;
+}
 
 
 
@@ -166,52 +180,6 @@ textarea.resize {
 }
 
 
-
-/* TPTODO col grid */
-.col2-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 3px;
-}
-.col4-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    column-gap: 3px;
-}
-.col6-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-    column-gap: 3px;
-}
-.col2-grid span,
-.col4-grid span,
-.col6-grid span { /* TPTODO we could have so many less rules if we just had 1-4 grid things */
-    margin: 0px auto;
-}
-.col2-grid input,
-.col4-grid input,
-.col6-grid input {
-    width: 100% !important;
-}
-
-.col1 {
-    flex: 1;
-}
-.col2 {
-    flex: 2;
-}
-.col3 {
-    flex: 3;
-}
-.col4 {
-    flex: 4;
-}
-.col5 {
-    flex: 5;
-}
-.col6 {
-    flex: 6;
-}
 
 .row {
     display: flex;
@@ -265,7 +233,13 @@ textarea.resize {
 .centered-row > div {
     white-space: nowrap;
     width: 25px;
-    margin-left: 30%;
+    margin-left: 32%;
+}
+.centered-row.fodder > div {
+    margin-left: 41%;
+}
+.centered-row.boss > div {
+    margin-left: 13%;
 }
 
 .header-row {
@@ -281,7 +255,21 @@ textarea.resize {
     font-size: 21px;
     font-weight: bold;
     color: var(--color-text);
+    text-align: center;
 }
+
+.equipment-row select {
+    width: 100px;
+}
+
+
+
+.col1 { flex: 1 !important; }
+.col2 { flex: 2 !important; }
+.col3 { flex: 3 !important; }
+.col4 { flex: 4 !important; }
+.col5 { flex: 5 !important; }
+.col6 { flex: 6 !important; }
 
 
 
@@ -294,27 +282,26 @@ textarea.resize {
 }
 
 #character_collapse {
-    height: 341px;
+    height: 430px;
 }
 #character_collapse textarea {
     height: 150px;
     resize: none;
 }
+#character_collapse textarea.short {
+    height: 55px;
+}
 #traits_collapse {
     height: 294px;
 }
 #stats_collapse {
-    height: 517px;
+    height: 632px;
 }
 #dcdefense_collapse {
     height: 149px;
 }
-
-
-
-#ability_container .repcontrol_add {
-    position: relative;
-    right: 134px;
+#flawedlegend_collapse {
+    height: 428px;
 }
 
 
@@ -332,7 +319,7 @@ textarea.resize {
     margin-top: 0px;
 }
 
-.vr {
+.vr { /* TPTODO: currently unused */
     background-color: var(--color-highlight);
     height: 100%;
     width: 1px;
@@ -428,12 +415,6 @@ span {
 
 
 
-#page_main {
-    margin-left: -8px;
-}
-
-
-
 /* Controls the background color */
 #dialog-window {
     background-color: var(--color-background) !important;
@@ -441,9 +422,6 @@ span {
 .tab-pane {
     background-color: var(--color-background);
 }
-
-
-
 /* This controls the color of the tabs above the character sheet */
 .nav.nav-tabs {
     background-color: white;
@@ -464,28 +442,27 @@ body.sheet-darkmode .nav.nav-tabs {
 
 
 /* This controls the tabs in the character sheet that hold the different pages */
-#tab_holder {
+#page_holder {
     padding-bottom: 6px;
     margin-top: -6px;
     width: 502px;
 }
-
-
-
-
-#main_page_main {
+#page_roleplay {
+    margin-left: -8px;
+}
+.main-page-area {
     flex: 0;
 }
 
-#main_page_right_sidebar > div {
+.right_sidebar > div {
     width: 150px;
     position: fixed;
 }
-#main_page_right_sidebar .hr {
+.right_sidebar .hr {
     margin-top: 0px;
     margin-bottom: 3px;
 }
-#main_page_right_sidebar select {
+.right_sidebar select {
     width: 100% !important;
 }
 
@@ -496,12 +473,9 @@ body.sheet-darkmode .nav.nav-tabs {
     margin-top: 137px;
 }
 #sheet_settings_box {
-    margin-top: 262px;
+    margin-top: 139px;
 }
 
-
-
-/* TPTODO */
 .disadvantaged-trait {
     background-color: var(--color-button-negative) !important;
 }
@@ -509,72 +483,170 @@ body.sheet-darkmode .nav.nav-tabs {
     background-color: var(--color-button-positive) !important;
 }
 
+/* Health, mana, and death stack bars */
+.health-field > input,
+.mana-field > input,
+.death-stack-field > input {
+    color: white;
+    text-shadow: 0px 0px 5px black;
+    font-size: 20px;
+    text-align: center;
+    padding-left: 18px;
+}
+.health-field > input {
+    background-color: #7CC48A;
+}
+.mana-field > input {
+    background-color: #7C9BC4;
+}
+.death-stack-field > input {
+    background-color: #B31D1D;
+}
+.health-field > input::placeholder,
+.mana-field > input::placeholder,
+.death-stack-field > input::placeholder {
+    color: white;
+    text-shadow: none;
+    font-size: 15px;
+    opacity: 0.5;
+}
+
+/* Tolerances and weaknesses */
+.acid {
+    background-color: lightgreen !important;
+}
+.blast {
+    background-color: orange !important;
+}
+.cold {
+    background-color: lightblue !important;
+}
+.death {
+    background-color: black !important;
+    color: white;
+}
+.electric {
+    background-color: lightyellow !important;
+}
+.fire {
+    background-color: lightcoral !important;
+}
+.light {
+    background-color: lightgrey !important;
+    border: 1px darkgrey solid;
+}
+.physical {
+    background-color: saddlebrown !important;
+    color: white;
+}
+.poison {
+    background-color: green !important;
+    color: white;
+}
+.psychic {
+    background-color: lightsteelblue !important;
+}
 
 
-/*:has(> .ability input.category[value="Attack"])*/
 
-/* #ability_container input.outside-ability-category[value="Attack"] ~ .repcontainer:has(> .repitem input.ability-category[value="Attack"]) {
-    background-color: red;
-} */
-
-#ability_container input.outside-ability-category[value="Attack"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Attack"])) {
+/* Holds the arsenal category buttons */
+#arsenal_container .ability-category {
+    text-align: center;
+    height: 62px;
+}
+/* The arsenal categories */
+#arsenal_container .ability-category.Weapon ~ .repcontainer .repitem:not(:has(> .ability-category[value="Weapon"])) {
     display: none;
 }
-#ability_container input.outside-ability-category[value="Spell"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Spell"])) {
+#arsenal_container .ability-category.Spell ~ .repcontainer .repitem:not(:has(> .ability-category[value="Spell"])) {
     display: none;
 }
-#ability_container input.outside-ability-category[value="Class Ability"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Class Ability"])) {
+#arsenal_container .ability-category.ClassAbility ~ .repcontainer .repitem:not(:has(> .ability-category[value="Class Ability"])) {
     display: none;
 }
-#ability_container input.outside-ability-category[value="Species Ability"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Species Ability"])) {
+#arsenal_container .ability-category.SpeciesAbility ~ .repcontainer .repitem:not(:has(> .ability-category[value="Species Ability"])) {
     display: none;
 }
-#ability_container input.outside-ability-category[value="Lore Ability"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Lore Ability"])) {
+#arsenal_container .ability-category.LoreAbility ~ .repcontainer .repitem:not(:has(> .ability-category[value="Lore Ability"])) {
     display: none;
 }
-#ability_container input.outside-ability-category[value="Equipment"] ~ .repcontainer .repitem:not(:has(> .ability-category[value="Equipment"])) {
+#arsenal_container .ability-category.Equipment ~ .repcontainer .repitem:not(:has(> .ability-category[value="Equipment"])) {
     display: none;
 }
-
-.repcontainer[data-groupname="repeating_abilities"] input.ability-color[value="Red"] + .ability-header > .ability-name {
+#arsenal_container .ability-category.Inventory ~ .repcontainer .repitem:not(:has(> .ability-category[value="Inventory"])) {
+    display: none;
+}
+#arsenal_container .ability-category > .row > button.selected.allCategory {
+    background-color: black !important;
+}
+#arsenal_container .ability-category > .row > button.selected.allCategory > span {
+    color: lightgrey !important;
+}
+.repcontainer[data-groupname="repeating_abilities"] option {
+    background-color: white;
+    color: black;
+}
+#arsenal_container .ability-category > .row > button.selected.weaponCategory,
+.repcontainer[data-groupname="repeating_abilities"] .option-weapon,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-category[value="Weapon"] + .ability-full .ability-color {
     background-color: #ff9999;
 }
-.repcontainer[data-groupname="repeating_abilities"] input.ability-color[value="Green"] + .ability-header > .ability-name {
-    background-color: #99ff99;
-}
-.repcontainer[data-groupname="repeating_abilities"] input.ability-color[value="Blue"] + .ability-header > .ability-name {
+#arsenal_container .ability-category > .row > button.selected.spellCategory,
+.repcontainer[data-groupname="repeating_abilities"] .option-spell,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-category[value="Spell"] + .ability-full .ability-color {
     background-color: #aaddff;
 }
-.repcontainer[data-groupname="repeating_abilities"] input.ability-color[value="Purple"] + .ability-header > .ability-name {
+#arsenal_container .ability-category > .row > button.selected.classAbilityCategory,
+.repcontainer[data-groupname="repeating_abilities"] .option-class-ability,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-category[value="Class Ability"] + .ability-full .ability-color {
+    background-color: #99ff99;
+}
+#arsenal_container .ability-category > .row > button.selected.speciesAbilityCategory,
+.repcontainer[data-groupname="repeating_abilities"] .option-species-ability,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-category[value="Species Ability"] + .ability-full .ability-color {
+    background-color: #ffc55a;
+}
+#arsenal_container .ability-category > .row > button.selected.loreAbilityCategory,
+.repcontainer[data-groupname="repeating_abilities"] .option-lore-ability,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-category[value="Lore Ability"] + .ability-full .ability-color {
     background-color: #ddaaff;
 }
-.repcontainer[data-groupname="repeating_abilities"] input.ability-color[value="Pink"] + .ability-header > .ability-name {
-    background-color: #ffaadd;
+#arsenal_container .ability-category > .row > button.selected.equipmentCategory,
+.option-equipment, /* This can be used anywhere on the sheet */
+.repcontainer[data-groupname="repeating_abilities"] input.ability-category[value="Equipment"] + .ability-full .ability-color {
+    color: white;
+    background-color: #6b6b6b;
+}
+#arsenal_container .ability-category > .row > button.selected.equipmentCategory > span {
+    color: white !important;
+}
+#arsenal_container .ability-category > .row > button.selected.inventoryCategory,
+.repcontainer[data-groupname="repeating_abilities"] .option-inventory,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-category[value="Inventory"] + .ability-full .ability-color {
+    color: white;
+    background-color: #0f0f0f;
+}
+#arsenal_container .ability-category > .row > button.selected.inventoryCategory > span {
+    color: white !important;
 }
 
-.repcontainer[data-groupname="repeating_abilities"] input.ability-layout[value="1"] + .ability .settings,
-.repcontainer[data-groupname="repeating_abilities"] input.ability-layout[value="2"] + .ability .content,
-.repcontainer[data-groupname="repeating_abilities"] input.ability-collapse[value="1"] ~ div {
-    display: none;
+
+
+
+
+/* Arsenal sections */
+.repcontainer[data-groupname="repeating_abilities"] input[type=text] {
+    width: 100%;
 }
-.repcontainer[data-groupname="repeating_abilities"] input.ability-load[value="0"] + button .unloaded,
-.repcontainer[data-groupname="repeating_abilities"] input.ability-load[value="1"] + button .loaded {
-    display: none;
+.repcontainer .content {
+    margin-bottom: 0px !important;
 }
 .repcontainer[data-groupname="repeating_abilities"] .repitem:first-child .hr {
     display: none;
 }
-
-.repcontainer[data-groupname="repeating_abilities"] .itemcontrol {
-    z-index: 1;
-}
-.repcontainer[data-groupname="repeating_abilities"] .itemcontrol .repcontrol_move {
-    position: relative;
-    right: 172px;
-}
-
-.repcontainer[data-groupname="repeating_abilities"] input[type=text] {
-    width: 100%;
+.repcontainer[data-groupname="repeating_abilities"] .ability-base-damage,
+.repcontainer[data-groupname="repeating_abilities"] .ability-brutal-damage{
+    width: 100px !important;
 }
 
 .repcontainer[data-groupname="repeating_abilities"] .ability-header {
@@ -592,6 +664,10 @@ body.sheet-darkmode .nav.nav-tabs {
     margin-right: 1px;
     padding-top: 4px;
 }
+.repcontainer[data-groupname="repeating_abilities"] .ability-header input {
+    position: relative;
+    bottom: 2px;
+}
 
 .repcontainer[data-groupname="repeating_abilities"] .ability-attack-header {
     display: grid;
@@ -603,6 +679,14 @@ body.sheet-darkmode .nav.nav-tabs {
     gap: 0px;
     flex-wrap: wrap;
 }
+.repcontainer[data-groupname="repeating_abilities"] .ability-attack-content > * {
+    position: relative;
+    top: 3px;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability-attack-content > * > input {
+    position: relative;
+    top: -2px;
+}
 .repcontainer[data-groupname="repeating_abilities"] .ability-attack-content input {
     max-width: 100px;
 }
@@ -613,33 +697,22 @@ body.sheet-darkmode .nav.nav-tabs {
 .repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasuses:checked) .ability-uses {
     display: flex !important;
 }
-.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasattack:checked) .ability-attack {
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasweight:checked) .ability-weight {
+    display: flex !important;
+}
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasmelee:checked) .ability-attack,
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasranged:checked) .ability-attack,
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasspell:checked) .ability-attack,
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.haseffect:checked) .ability-attack,
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasability:checked) .ability-attack,
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasenvironment:checked) .ability-attack {
     display: block !important;
 }
-.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasmelee:checked) .melee {
-    display: block !important;
-}
-.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasranged:checked) .ranged {
-    display: block !important;
-}
-/*.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasthrown:checked) .thrown {
-    display: block !important;
-}
-.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasunarmed:checked) .unarmed {
-    display: block !important;
-}*/
-.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasspell:checked) .spell {
-    display: block !important;
-}
-.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.haseffect:checked) .effect {
-    display: block !important;
-}
-.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasability:checked) .ability {
-    display: block !important;
-}
-/*.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasrune:checked) .rune {
-    display: block !important;
-}*/
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasmelee:checked) .melee,
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasranged:checked) .ranged,
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasspell:checked) .spell,
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.haseffect:checked) .effect,
+.repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasability:checked) .ability,
 .repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasenvironment:checked) .environment {
     display: block !important;
 }
@@ -648,30 +721,26 @@ body.sheet-darkmode .nav.nav-tabs {
 }
 .repcontainer[data-groupname="repeating_abilities"] .ability:has(> .settings > * > * > input.hasdescription:checked) .ability-description {
     display: block !important;
+    height: 158px !important;
 }
 
 .repcontainer[data-groupname="repeating_abilities"] .melee input,
 .repcontainer[data-groupname="repeating_abilities"] .ranged input,
-.repcontainer[data-groupname="repeating_abilities"] .thrown input,
-.repcontainer[data-groupname="repeating_abilities"] .spell input,
-.repcontainer[data-groupname="repeating_abilities"] .unarmed input {
+.repcontainer[data-groupname="repeating_abilities"] .spell input {
     width: 92px !important;
 }
 
 
 
-.repcontainer[data-groupname="repeating_equipment"] .equipment-header {
-    display: grid;
-    grid-template-columns: 25px 50px 1fr 50px 50px;
-    column-gap: 3px;
-}
-.repcontainer[data-groupname="repeating_equipment"] .equipment-header button {
-    width: 12px;
-}
-.repcontainer[data-groupname="repeating_equipment"] .equipment-header input {
-    width: 100%;
+/* Layout and collapse */
+.repcontainer[data-groupname="repeating_abilities"] input.ability-layout[value="1"] + .ability .settings,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-layout[value="2"] + .ability .content,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-collapse[value="1"] ~ div {
+    display: none;
 }
 
-.repcontainer[data-groupname="repeating_equipment"] input.equipment-collapse[value="1"] + .collapse-description {
+/* Reloading */
+.repcontainer[data-groupname="repeating_abilities"] input.ability-load[value="0"] + button .unloaded,
+.repcontainer[data-groupname="repeating_abilities"] input.ability-load[value="1"] + button .loaded {
     display: none;
 }
